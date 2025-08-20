@@ -1,9 +1,11 @@
 import pandas as pd
+import os
 
 def check_rsvp_code(input_code: str):
     
     try:
-        excel_path = "guest_list.xls"
+        BASE_DIR = os.path.dirname(__file__)
+        excel_path = os.path.join(BASE_DIR, "guest_list.xls") 
         df = pd.read_excel(excel_path)
 
         required_cols = {"First Name", "Last Name", "Nick Name", "Code"}
@@ -15,9 +17,10 @@ def check_rsvp_code(input_code: str):
         df["Code"] = df["Code"].astype(str).str.strip()
 
         results = df[df["Code"] == input_code]
-
+        
         if results.empty:
             print("Code not found.")
+            return {"no_matched":[]}
         else:
             print(f"Found {len(results)} match(es):")
             for _, row in results.iterrows():
@@ -26,6 +29,9 @@ def check_rsvp_code(input_code: str):
                         f"Last Name: {row['Last Name']}, "
                         f"Nick Name: {row['Nick Name']}, "
                     )
+            
+            return {"matched":[row['First Name'],row['Last Name'],row['Nick Name']]}
+        
     except FileNotFoundError:
         print("Excel file not found. Please check the path.")
     except ValueError as e:

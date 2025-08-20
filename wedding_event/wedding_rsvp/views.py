@@ -1,8 +1,10 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from django.http import HttpResponse
+from django.contrib.auth import login
+from django.contrib.auth.models import User
 from .forms import GuestInfoForm,ConfirmGuestForm
 from .models import Guest, Attendee
-import numpy
+from .utils import check_rsvp_code
+
 
 def index(request):
     get_first_name = Guest.objects.order_by("first_name")
@@ -16,7 +18,12 @@ def confirm_guest(request):
         code = request.POST.get("c_guest_code")
         if code:
             request.session["c_guest_code"] = code
-                
+            confirmation_info = check_rsvp_code(code)
+            if list(confirmation_info.keys())[0] == "matched":
+                print(
+                    confirmation_info["matched"][0],
+                    confirmation_info["matched"][1]
+                )
             return redirect("wedding_rsvp:rsvp")
             
     else:
@@ -26,7 +33,6 @@ def confirm_guest(request):
 
 def rsvp(request):
     #create add button for multiple attendee
-    print(request.session.get("c_guest_code"))
     if not request.session.get("c_guest_code"):
         
         return redirect("wedding_rsvp:confirm_guest")
