@@ -1,0 +1,4 @@
+<form action="{% url 'wedding_rsvp:confirm_guest' %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value="RSVP Now" />
+</form>

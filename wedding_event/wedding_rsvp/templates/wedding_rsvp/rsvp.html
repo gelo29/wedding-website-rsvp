@@ -1,0 +1,43 @@
+<form method="POST" action="">
+  {% csrf_token %}
+  <div class="guest-first-name">
+    {{ form.guest_first_name.label_tag }} {{form.guest_first_name }}
+  </div>
+  <div class="guest-last-name">
+    {{ form.guest_last_name.label_tag }} {{ form.guest_last_name }}
+  </div>
+  <div class="guest-reply">{{ form.guest_reply }}</div>
+  <div class="attendee-has-companion">
+    {{ form.has_companion.label_tag }} {{form.has_companion }}
+  </div>
+  <div class="attendee-first-name">
+    {{ form.attendee_first_name.label_tag }} {{form.attendee_first_name }}
+  </div>
+  <div class="attendee-last-name">
+    {{ form.attendee_last_name.label_tag }} {{ form.attendee_last_name }}
+  </div>
+  <!--
+  <input
+    type="text"
+    name="guest_firstName"
+    placeholder="Enter your First Name"
+  />
+  <input type="text" name="guest_lastName" placeholder="Enter your Last Name" />
+  <input type="radio" name="choice" id="accept" checked />
+  <label for="accept">Accept With Pleasure</label><br />
+  <input type="radio" name="choice" id="decline" />
+  <label for="decline">Decline with Regret</label><br />
+
+  <input
+    type="text"
+    name="attendee_firstName"
+    placeholder="Enter First Name of Attendee"
+  />
+  <input
+    type="text"
+    name="attendee_lastName"
+    placeholder="Enter Last Name of Attendee"
+  />
+  -->
+  <button type="submit">Submit</button>
+</form>
