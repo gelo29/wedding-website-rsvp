@@ -1,0 +1,413 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Page</title>
+    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header id="navbar">
+      <nav class="nav-container">
+        <div class="logo">
+          <a href="{% url 'wedding_rsvp:index'%}">
+            <img
+              src="{% static 'wedding_rsvp/images/logo_sage.png'%}"
+              alt="Logo"
+              class="logo entourage-green"
+            />
+          </a>
+        </div>
+
+        <!-- Hamburger icon -->
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <ul class="nav-links entourage-nav-links" id="nav-links">
+          <li><a href="{% url 'wedding_rsvp:index'%}">Home</a></li>
+          <li>
+            <a href="{% url 'wedding_rsvp:index'%}#our-story">Our Story</a>
+          </li>
+          <li><a href="{% url 'wedding_rsvp:index'%}#gallery">Gallery</a></li>
+          <li>
+            <a href="{% url 'wedding_rsvp:entourage_page' %}">Entourage</a>
+          </li>
+          <li><a href="{% url 'wedding_rsvp:index'%}#details">Details</a></li>
+          <li><a href="{% url 'wedding_rsvp:index'%}#event">Event</a></li>
+          <li><a href="{% url 'wedding_rsvp:index'%}#faq">FAQs</a></li>
+          <li>
+            <a href="{% url 'wedding_rsvp:confirm_guest' %}" class="rsvp-btn"
+              >RSVP</a
+            >
+          </li>
+        </ul>
+        <!-- Side Panel Menu -->
+        <div class="side-menu" id="side-menu">
+          <span class="close-btn" id="close-btn">&times;</span>
+          <ul class="menu-links">
+            <li><a href="{% url 'wedding_rsvp:index'%}">Home</a></li>
+            <li>
+              <a href="{% url 'wedding_rsvp:index'%}#our-story">Our Story</a>
+            </li>
+            <li><a href="{% url 'wedding_rsvp:index'%}#gallery">Gallery</a></li>
+            <li>
+              <a href="{% url 'wedding_rsvp:entourage_page' %}">Entourage</a>
+            </li>
+            <li><a href="{% url 'wedding_rsvp:index'%}#details">Details</a></li>
+            <li><a href="{% url 'wedding_rsvp:index'%}#event">Event</a></li>
+            <li><a href="{% url 'wedding_rsvp:index'%}#faq">FAQs</a></li>
+            <li>
+              <a href="{% url 'wedding_rsvp:confirm_guest' %}" class="rsvp-btn"
+                >RSVP</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Entourage -->
+    <section class="entourage-featured" id="entourage">
+      <h2 class="entourage-title">Our Entourage</h2>
+      <div class="entourage-featured-grid">
+        <div class="entourage-featured-card matron-of-honor">
+          <img
+            src="{% static 'wedding_rsvp/images/entourage/jucel_3.JPG' %}"
+            alt="Mrs Jucel B Gustillo"
+          />
+          <div class="entourage-info">
+            <h3>Mrs Jucel B Gustillo</h3>
+            <p>Matron of Honor</p>
+          </div>
+        </div>
+        <div class="entourage-featured-card best-man">
+          <img
+            src="{% static 'wedding_rsvp/images/entourage/no_image_male.png'%}"
+            alt="Michael Samson"
+          />
+          <div class="entourage-info">
+            <h3>Michael Samson</h3>
+            <p>Best Man</p>
+          </div>
+        </div>
+      </div>
+      <h2 class="groomsmen-bridesmaids-title">Bridesmaids & Groomsmen</h2>
+      <div class="entourage-pair-group">
+        <div class="entourage-pair">
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/steph_edited.jpg' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Estephanie Samson</h3>
+              <p>Bridesmaid</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/no_image_male.png'%}"
+              alt="Groomsman"
+            />
+            <div class="entourage-info">
+              <h3>Melquiades M. Colasito</h3>
+              <p>Groomsman</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/no_image_female.jpg' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Justine M. Punzalan</h3>
+              <p>Bridesmaid</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/no_image_male.png'%}"
+              alt="Groomsman"
+            />
+            <div class="entourage-info">
+              <h3>John M. Cariño</h3>
+              <p>Groomsman</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/joan_edited.jpg' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Joan O. Belmes</h3>
+              <p>Bridesmaid</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/no_image_male.png'%}"
+              alt="Groomsman"
+            />
+            <div class="entourage-info">
+              <h3>Don C. Mangalindan</h3>
+              <p>Groomsman</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/charm_edited.jpeg' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Charmain A. Cartagena</h3>
+              <p>Bridesmaid</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/kiko_2.jpg' %}"
+              alt="Groomsman"
+            />
+            <div class="entourage-info">
+              <h3>Francisco T. Munsayac</h3>
+              <p>Groomsman</p>
+            </div>
+          </div>
+        </div>
+        <!-- Add more pairs here -->
+      </div>
+      <h2 class="groomsmen-bridesmaids-title">To Light our Way through Life</h2>
+      <div class="entourage-pair-group">
+        <div class="entourage-pair">
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/drae.jpeg' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Draeselle D. Gallego</h3>
+              <!-- <p>Bridesmaid</p> -->
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/no_image_male.png'%}"
+              alt="Groomsman"
+            />
+            <div class="entourage-info">
+              <h3>Francis B. Sona</h3>
+              <!-- <p>Groomsman</p> -->
+            </div>
+          </div>
+        </div>
+        <!-- Add more pairs here -->
+      </div>
+      <h2 class="groomsmen-bridesmaids-title">
+        To Clothe Us in the Veil of Unity
+      </h2>
+      <div class="entourage-pair-group">
+        <div class="entourage-pair">
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/no_image_female.jpg' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Mariekarr D. Bautista</h3>
+              <!-- <p>Bridesmaid</p> -->
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/micky.jpeg'  %}"
+              alt="Groomsman"
+            />
+            <div class="entourage-info">
+              <h3>Mark Christian S. Bautista</h3>
+              <!-- <p>Groomsman</p> -->
+            </div>
+          </div>
+          <!-- Add more pairs here -->
+        </div>
+      </div>
+      <h2 class="groomsmen-bridesmaids-title">
+        To Bind us in the Cord of Love
+      </h2>
+      <div class="entourage-pair-group">
+        <div class="entourage-pair">
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/no_image_female.jpg' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Nerissa B. Mangalindan</h3>
+              <!-- <p>Bridesmaid</p> -->
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/niek.jpg' %}"
+              alt="Groomsman"
+            />
+            <div class="entourage-info">
+              <h3>Daniel C. Mangalindan</h3>
+              <!-- <p>Groomsman</p> -->
+            </div>
+          </div>
+          <!-- Add more pairs here -->
+        </div>
+      </div>
+      <h2 class="bearers-title">bearers</h2>
+      <div class="entourage-pair-group">
+        <div class="bearers-pair">
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/ali.jpg' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Mcalister A. Colasito</h3>
+              <p>Coin Bearer</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/mon_2.jpeg' %}"
+              alt="Groomsman"
+            />
+            <div class="entourage-info">
+              <h3>Driton MonLewis D. Gallego</h3>
+              <p>Ring Bearer</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/lei_2.jpeg' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Dmitri Lei D. Gallego</h3>
+              <p>Bible Bearer</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/paul_2.JPG' %}"
+              alt="Groomsman"
+            />
+            <div class="entourage-info">
+              <h3>Paul Umi Q. Cariño</h3>
+              <p>Flower Girl</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/georgie_3.jpg' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Georgie Q. Cariño</h3>
+              <p>Flower Girl</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/tally_2.jpg' %}"
+              alt="Groomsman"
+            />
+            <div class="entourage-info">
+              <h3>Maria Ataliah D. Bautista</h3>
+              <p>Flower Girl</p>
+            </div>
+          </div>
+          <div class="entourage-featured-card">
+            <img
+              src="{% static 'wedding_rsvp/images/entourage/amber.JPG' %}"
+              alt="Bridesmaid"
+            />
+            <div class="entourage-info">
+              <h3>Amber Lexie B. Dela Paz</h3>
+              <p>Flower Girl</p>
+            </div>
+          </div>
+        </div>
+        <!-- Add more pairs here -->
+      </div>
+    </section>
+    <footer class="wedding-footer">
+      <div class="footer-container">
+        <!-- Left -->
+        <div class="footer-details">
+          <h4>Ceremony</h4>
+          <p>
+            St. Joseph The Worker Parish<br />
+            Gladiola Street, Greenland Executive Village, Cainta, Philippines,
+            1920
+          </p>
+
+          <h4>Reception</h4>
+          <p>
+            Casa Bella Events Place, 14 Neptune Street<br />
+            ancingco Subdivision Taytay, Rizal
+          </p>
+        </div>
+
+        <!-- Middle Logo -->
+        <div class="footer-logo">
+          <img
+            src="{% static 'wedding_rsvp/images/logo_white.png' %}"
+            alt="Wedding Logo"
+          />
+        </div>
+
+        <!-- Right Contact -->
+        <div class="footer-contact">
+          <h4>Got questions? You may contact us at:</h4>
+          <p>
+            <img src="{% static 'wedding_rsvp/images/fb_2.svg' %}" alt="" />
+            John Doe<br />
+            <span class="username">johndoe</span>
+          </p>
+          <p>
+            <img src="{% static 'wedding_rsvp/images/insta_2.svg' %}" alt="" />
+            Jane Parez<br />
+            <span class="username">janeperez</span>
+          </p>
+          <p>
+            <img
+              src="{% static 'wedding_rsvp/images/phone_num.svg' %}"
+              alt=""
+            />
+            +63 956 510 6867
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="{% static 'wedding_rsvp/js/main.js'%}"></script>
+  </body>
+</html>

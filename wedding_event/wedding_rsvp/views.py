@@ -24,7 +24,10 @@ def confirm_guest(request):
                     confirmation_info["matched"][0],
                     confirmation_info["matched"][1]
                 )
-            return redirect("wedding_rsvp:rsvp")
+                return redirect("wedding_rsvp:rsvp")
+            else:
+                print("Not Matched")
+            
             
     else:
         form = ConfirmGuestForm()
@@ -57,4 +60,5 @@ def rsvp(request):
         
     return render(request, "wedding_rsvp/rsvp.html", {"form":form})
 
-
+def entourage(request):
+    return render(request, "wedding_rsvp/entourage.html")

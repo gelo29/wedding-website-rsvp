@@ -1,4 +1,455 @@
+{% load static %} {% comment %}
+<link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}" />
 <form action="{% url 'wedding_rsvp:confirm_guest' %}" method="post">
   {% csrf_token %}
-  <input type="submit" value="RSVP Now" />
+  <button type="submit" class="rsvp_btn">RSVP Now</button>
 </form>
+<img
+  src="{% static 'wedding_rsvp/images/our_story_2.png' %}"
+  alt="Our Story Image"
+/>
+{% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Page</title>
+    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+
+    <header id="navbar">
+      <nav class="nav-container">
+        <div class="logo">
+          <a href="{% url 'wedding_rsvp:index'%}"
+            ><img src={% static 'wedding_rsvp/images/logo_sage.png'%} alt="Logo"
+            class="logo logo-green" /></a
+          >
+          <a href="{% url 'wedding_rsvp:index'%}"
+            ><img src={% static 'wedding_rsvp/images/logo_white.png'%}
+            alt="Logo" class="logo logo-white" /></a
+          >
+        </div>
+
+        <!-- Hamburger icon -->
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="{% url 'wedding_rsvp:index'%}">Home</a></li>
+          <li><a href="#our-story">Our Story</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li>
+            <a href="{% url 'wedding_rsvp:entourage_page' %}">Entourage</a>
+          </li>
+          <li><a href="#details">Details</a></li>
+          <li><a href="#event">Event</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li>
+            <a href="{% url 'wedding_rsvp:confirm_guest' %}" class="rsvp-btn"
+              >RSVP</a
+            >
+          </li>
+        </ul>
+        <!-- Side Panel Menu -->
+        <div class="side-menu" id="side-menu">
+          <span class="close-btn" id="close-btn">&times;</span>
+          <ul class="menu-links">
+            <li><a href="{% url 'wedding_rsvp:index'%}">Home</a></li>
+            <li><a href="#our-story">Our Story</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li>
+              <a href="{% url 'wedding_rsvp:entourage_page' %}">Entourage</a>
+            </li>
+            <li><a href="#details">Details</a></li>
+            <li><a href="#event">Event</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            <li>
+              <a href="{% url 'wedding_rsvp:confirm_guest' %}" class="rsvp-btn"
+                >RSVP</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Hero -->
+    <section id="hero">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1>Angelo & Celly Wedding</h1>
+          <p>Please join us on our wedding day as we start our new chapter</p>
+          <h3>December 26, 2025</h3>
+          <div class="hero-buttons">
+            <a href="#invitation" class="hero-button">Invitation</a>
+            <a href="#rsvp" class="hero-button rsvp-button-mobile">RSVP</a>
+          </div>
+          <div class="countdown" id="countdown">
+            <div><span id="days">0</span><small>DAYS</small></div>
+            <div><span id="hours">0</span><small>HOURS</small></div>
+            <div><span id="minutes">0</span><small>MINUTES</small></div>
+            <div><span id="seconds">0</span><small>SECONDS</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Our Story -->
+
+    <section class="our-story-section" id="our-story">
+      <div class="our-story-image">
+        <img
+          src="{% static 'wedding_rsvp/images/our_story_2.png'%}"
+          alt="Our Story Image"
+        />
+        <h2 class="mobile-overlay-title">Our Story</h2>
+      </div>
+      <div class="our-story-text">
+        <h2 class="desktop-title">Our Story</h2>
+        <p>
+          Angelo and Celly's love story began in the most unexpected place and
+          bloomed into something beautiful and timeless. Through shared dreams,
+          laughter, and challenges, their bond grew stronger with each day.
+        </p>
+        <p>
+          Now, they invite you to celebrate a new chapter in their journey — a
+          celebration of love, unity, and forever.
+        </p>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+      <h2 class="gallery-title">Gallery</h2>
+      <div class="gallery-wrapper">
+        <div class="swiper gallery-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery1.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery1.JPG' %}"
+                  alt="Gallery image 1"
+                  style="object-position: 50% 20%"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery2.jpg' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery2.jpg' %}"
+                  alt="Gallery image 2"
+                  style="object-position: 50% 30%"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery3.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery3.JPG' %}"
+                  alt="Gallery image 3"
+                  style="object-position: 50% 20%"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery4.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery4.JPG' %}"
+                  alt="Gallery image 4"
+                  style="object-position: 50% 12%"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery5.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery5.JPG' %}"
+                  alt="Gallery image 5"
+                  style="object-position: 50% 5%"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery6.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery6.JPG' %}"
+                  alt="Gallery image 6"
+                  style="object-position: 50% 20%"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery7.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery7.JPG' %}"
+                  alt="Gallery image 4"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery8.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery8.JPG' %}"
+                />
+              </a>
+            </div>
+            <!-- Add more slides as needed -->
+          </div>
+
+          <!-- Optional navigation -->
+          <!-- <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
+        </div>
+      </div>
+    </section>
+    <section id="details" class="details-section">
+      <div class="details-container">
+        <!-- Attire -->
+        <div class="detail-card">
+          <img
+            src="{% static 'wedding_rsvp/images/attire.png'%}"
+            alt="Attire"
+            class="detail-icon"
+          />
+          <h2 class="detail-title">Attire</h2>
+          <p>Formal Attire<br />Suit and tie, Formal Dress</p>
+          <p><strong>Color Palette:</strong></p>
+          <div class="color-palette">
+            <span style="background-color: #4c5b73"></span>
+            <span style="background-color: #7a8da1"></span>
+            <span style="background-color: #e5b8b0"></span>
+            <span style="background-color: #fbeaea"></span>
+            <span style="background-color: #f9e7d4"></span>
+          </div>
+        </div>
+
+        <!-- Gifts -->
+        <div class="detail-card">
+          <img
+            src="{% static 'wedding_rsvp/images/gift.png' %}"
+            alt="Gifts"
+            class="detail-icon"
+          />
+          <h2 class="detail-title">Gifts</h2>
+          <p>
+            With all that we have, we’ve been truly blessed.<br />
+            Your presence and prayers are all that we request.<br />
+            But if you desire to give nonetheless, a monetary gift is one we
+            suggest.
+          </p>
+        </div>
+
+        <!-- Snap & Share -->
+        <div class="detail-card">
+          <img
+            src="{% static 'wedding_rsvp/images/snap.png' %}"
+            alt="Snap & Share"
+            class="detail-icon"
+          />
+          <h2 class="detail-title">Snap & Share</h2>
+          <p>
+            Oh Snap! Help us capture our Wedding Day!<br />
+            Use the Hashtag: #angelo&cellywedding2025
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event -->
+    <section id="event" class="wedding-event-overlay">
+      <h2 class="event-title">Event</h2>
+
+      <div class="event-grid">
+        <!-- Ceremony -->
+        <a
+          href="https://maps.google.com?q=St.+Michael+Parish+Church,+San+Jose,+Batangas"
+          target="_blank"
+          class="event-card"
+          style="
+            background-image: url('{% static 'wedding_rsvp/images/st_joseph_the_worker.jpg' %}');
+          "
+        >
+          <div class="event-info">
+            <!-- <h3>Ceremony</h3> -->
+            <p>St. Michael Parish Church<br />San Jose, Batangas</p>
+            <span class="view-map">View Map</span>
+          </div>
+        </a>
+
+        <!-- Reception -->
+        <a
+          href="https://maps.google.com?q=Villa+Celina+Resort,+San+Jose,+Batangas"
+          target="_blank"
+          class="event-card"
+          style="
+            background-image: url('{% static 'wedding_rsvp/images/casa_bella.jpg' %}');
+          "
+        >
+          <div class="event-info">
+            <!-- <h3>Reception</h3> -->
+            <p>Villa Celina Resort<br />San Jose, Batangas</p>
+            <span class="view-map">View Map</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    <!-- Wedding Timeline -->
+    <section class="wedding-timeline">
+      <h2 class="timeline-title">Our Wedding Day</h2>
+      <div class="timeline-container">
+        <div class="timeline-item">
+          <div class="time">2:00 PM</div>
+          <div class="event">Ceremony</div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">3:00 PM</div>
+          <div class="event">Cocktail Hour</div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">5:00 PM</div>
+          <div class="event">Reception</div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">8:00 PM</div>
+          <div class="event">Send Off</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------- -->
+    <section id="faq" class="faq-section">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">Can I bring a guest?</button>
+          <div class="faq-answer">
+            <p>
+              We've chosen to share our special day with limited number of loved
+              ones. If you're formally invited, you'll receive a unique RSVP
+              code. Please use it to respond. If you've been allotted a plus
+              one, kindly include their name when RSVPing.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Are kids invited?</button>
+          <div class="faq-answer">
+            <p>
+              We love your little ones! However, with the exception of the
+              wedding party, we have decided to keep our wedding adults-only.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is there parking available?</button>
+          <div class="faq-answer">
+            <p>
+              Yes! Ample parking spaces available at both the church and the
+              reception venue.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="wedding-footer">
+      <div class="footer-container">
+        <!-- Left -->
+        <div class="footer-details">
+          <h4>Ceremony</h4>
+          <p>
+            St. Joseph The Worker Parish<br />
+            Gladiola Street, Greenland Executive Village, Cainta, Philippines,
+            1920
+          </p>
+
+          <h4>Reception</h4>
+          <p>
+            Casa Bella Events Place, 14 Neptune Street<br />
+            ancingco Subdivision Taytay, Rizal
+          </p>
+        </div>
+
+        <!-- Middle Logo -->
+        <div class="footer-logo">
+          <img
+            src="{% static 'wedding_rsvp/images/logo_white.png' %}"
+            alt="Wedding Logo"
+          />
+        </div>
+
+        <!-- Right Contact -->
+        <div class="footer-contact">
+          <h4>Got questions? You may contact us at:</h4>
+          <p>
+            <img src="{% static 'wedding_rsvp/images/fb_2.svg' %}" alt="" />
+            Angelo Samson<br />
+            <span class="username">gelosamson</span>
+          </p>
+          <p>
+            <img src="{% static 'wedding_rsvp/images/insta_2.svg'%}" alt="" />
+            Celly Betangcol<br />
+            <span class="username">cellybetangcol</span>
+          </p>
+          <p>
+            <img
+              src="{% static 'wedding_rsvp/images/phone_num.svg' %}"
+              alt=""
+            />
+            +63 956 510 6867
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+    <script src="{% static 'wedding_rsvp/js/main.js'%}"></script>
+  </body>
+</html>
