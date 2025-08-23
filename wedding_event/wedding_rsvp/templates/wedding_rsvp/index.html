@@ -102,7 +102,11 @@
           <h3>December 26, 2025</h3>
           <div class="hero-buttons">
             <a href="#invitation" class="hero-button">Invitation</a>
-            <a href="#rsvp" class="hero-button rsvp-button-mobile">RSVP</a>
+            <a
+              href="{% url 'wedding_rsvp:confirm_guest' %}"
+              class="hero-button rsvp-button-mobile"
+              >RSVP</a
+            >
           </div>
           <div class="countdown" id="countdown">
             <div><span id="days">0</span><small>DAYS</small></div>
@@ -235,6 +239,76 @@
                 />
               </a>
             </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery9.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery9.JPG' %}"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery10.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery10.JPG' %}"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery11.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery11.JPG' %}"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery12.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery12.JPG' %}"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery13.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery13.JPG' %}"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery14.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery14.JPG' %}"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide masonry-slide">
+              <a
+                href="{% static 'wedding_rsvp/images/gallery/gallery15.JPG' %}"
+                class="glightbox"
+              >
+                <img
+                  src="{% static 'wedding_rsvp/images/gallery/gallery15.JPG' %}"
+                />
+              </a>
+            </div>
             <!-- Add more slides as needed -->
           </div>
 
@@ -277,7 +351,7 @@
             With all that we have, we’ve been truly blessed.<br />
             Your presence and prayers are all that we request.<br />
             But if you desire to give nonetheless, a monetary gift is one we
-            suggest.
+            prefer.
           </p>
         </div>
 
@@ -304,7 +378,7 @@
       <div class="event-grid">
         <!-- Ceremony -->
         <a
-          href="https://maps.google.com?q=St.+Michael+Parish+Church,+San+Jose,+Batangas"
+          href="https://maps.app.goo.gl/9Eq51Rjage5wWUUf7"
           target="_blank"
           class="event-card"
           style="
@@ -320,7 +394,7 @@
 
         <!-- Reception -->
         <a
-          href="https://maps.google.com?q=Villa+Celina+Resort,+San+Jose,+Batangas"
+          href="https://maps.app.goo.gl/Qt7CZD1UCcEoZV7w5"
           target="_blank"
           class="event-card"
           style="
@@ -449,7 +523,6 @@
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-
     <script src="{% static 'wedding_rsvp/js/main.js'%}"></script>
   </body>
 </html>

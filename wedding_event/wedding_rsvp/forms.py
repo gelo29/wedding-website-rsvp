@@ -75,8 +75,9 @@ class ConfirmGuestForm(forms.Form):
         max_length=100,
         widget=forms.TextInput(
             attrs={
+                "id":"confirm-guest-input",
                 "class":"confirm_guest-info",
-                "placeholder": "Enter Code Here..."
+                "placeholder": "Enter Code Here"
             }
         )
     )

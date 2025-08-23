@@ -1,3 +1,4 @@
+{% comment %}
 <form method="POST">
   {% csrf_token %}
   <div class="guest-code-container">
@@ -5,3 +6,168 @@
   </div>
   <button type="submit">Confirm</button>
 </form>
+{% endcomment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wedding Page</title>
+    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header id="navbar">
+      <nav class="nav-container">
+        <div class="logo">
+          <a href="{% url 'wedding_rsvp:index'%}">
+            <img
+              src="{% static 'wedding_rsvp/images/logo_sage.png'%}"
+              alt="Logo"
+              class="logo entourage-green"
+            />
+          </a>
+        </div>
+
+        <!-- Hamburger icon -->
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <ul class="nav-links entourage-nav-links" id="nav-links">
+          <li><a href="{% url 'wedding_rsvp:index'%}">Home</a></li>
+          <li>
+            <a href="{% url 'wedding_rsvp:index'%}#our-story">Our Story</a>
+          </li>
+          <li><a href="{% url 'wedding_rsvp:index'%}#gallery">Gallery</a></li>
+          <li>
+            <a href="{% url 'wedding_rsvp:entourage_page' %}">Entourage</a>
+          </li>
+          <li><a href="{% url 'wedding_rsvp:index'%}#details">Details</a></li>
+          <li><a href="{% url 'wedding_rsvp:index'%}#event">Event</a></li>
+          <li><a href="{% url 'wedding_rsvp:index'%}#faq">FAQs</a></li>
+          <li>
+            <a href="{% url 'wedding_rsvp:confirm_guest' %}" class="rsvp-btn"
+              >RSVP</a
+            >
+          </li>
+        </ul>
+        <!-- Side Panel Menu -->
+        <div class="side-menu" id="side-menu">
+          <span class="close-btn" id="close-btn">&times;</span>
+          <ul class="menu-links">
+            <li><a href="{% url 'wedding_rsvp:index'%}">Home</a></li>
+            <li>
+              <a href="{% url 'wedding_rsvp:index'%}#our-story">Our Story</a>
+            </li>
+            <li><a href="{% url 'wedding_rsvp:index'%}#gallery">Gallery</a></li>
+            <li>
+              <a href="{% url 'wedding_rsvp:entourage_page' %}">Entourage</a>
+            </li>
+            <li><a href="{% url 'wedding_rsvp:index'%}#details">Details</a></li>
+            <li><a href="{% url 'wedding_rsvp:index'%}#event">Event</a></li>
+            <li><a href="{% url 'wedding_rsvp:index'%}#faq">FAQs</a></li>
+            <li>
+              <a href="{% url 'wedding_rsvp:confirm_guest' %}" class="rsvp-btn"
+                >RSVP</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section class="code-login">
+      <div class="login-box">
+        <img
+          src="{% static 'wedding_rsvp/images/logo_sage.png' %}"
+          alt="Logo"
+          class="login-logo"
+        />
+        <h2 class="login-title">RSVP Log In</h2>
+        <p class="login-message">
+          We have reserved seat/s in your honor. Your response is requested on
+          or before exactly a month before the wedding.
+        </p>
+        <form method="POST">
+          {% csrf_token %} {{ form.c_guest_code.label_tag }}
+          {{form.c_guest_code}}
+          <button type="submit" id="confirm-guest-btn" class="login-btn">
+            Send
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="wedding-footer">
+      <div class="footer-container">
+        <!-- Left -->
+        <div class="footer-details">
+          <h4>Ceremony</h4>
+          <p>
+            St. Joseph The Worker Parish<br />
+            Gladiola Street, Greenland Executive Village, Cainta, Philippines,
+            1920
+          </p>
+
+          <h4>Reception</h4>
+          <p>
+            Casa Bella Events Place, 14 Neptune Street<br />
+            ancingco Subdivision Taytay, Rizal
+          </p>
+        </div>
+
+        <!-- Middle Logo -->
+        <div class="footer-logo">
+          <img
+            src="{% static 'wedding_rsvp/images/logo_white.png' %}"
+            alt="Wedding Logo"
+          />
+        </div>
+
+        <!-- Right Contact -->
+        <div class="footer-contact">
+          <h4>Got questions? You may contact us at:</h4>
+          <p>
+            <img src="{% static 'wedding_rsvp/images/fb_2.svg' %}" alt="" />
+            Angelo Samson<br />
+            <span class="username">gelosamson</span>
+          </p>
+          <p>
+            <img src="{% static 'wedding_rsvp/images/insta_2.svg'%}" alt="" />
+            Celly Betangcol<br />
+            <span class="username">cellybetangcol</span>
+          </p>
+          <p>
+            <img
+              src="{% static 'wedding_rsvp/images/phone_num.svg' %}"
+              alt=""
+            />
+            +63 956 510 6867
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="{% static 'wedding_rsvp/js/main.js'%}"></script>
+  </body>
+</html>

@@ -581,6 +581,7 @@ header.scrolled .logo-green {
 }
 
 /* Details */
+
 .details-section {
   width: 100%;
   min-height: 100vh; /* Full screen height */
@@ -832,6 +833,72 @@ header.scrolled .logo-green {
 .timeline-item:last-child::after {
   display: none;
 }
+/* RSVP Log in */
+.code-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.login-box {
+  background: #fff;
+  padding: 30px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+.login-logo {
+  margin: 0;
+  padding: 0;
+  max-width: 200px;
+}
+.login-title {
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  color: #a1b38c;
+  font-weight: 400;
+}
+.login-message {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 0.9rem;
+}
+.confirm_guest-info {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: "Montserrat" sans-serif;
+}
+.confirm_guest-info:focus {
+  border-color: #a1b38c;
+  box-shadow: 0 0 8px rgba(168, 107, 91, 0.2);
+}
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: #a1b38c;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Montserrat" sans-serif;
+}
+
+.login-btn:hover {
+  background: #7c8b70;
+}
 
 /* ==== Responsive Breakpoint ==== */
 @media (max-width: 992px) {
@@ -974,5 +1041,20 @@ header.scrolled .logo-green {
     transform: translateX(-50%);
     width: 2px;
     height: 25px;
+  }
+  /* RSVP Login */
+  .code-login {
+    min-height: 100vh;
+  }
+  .login-box {
+    padding: 30px 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .login-title {
+    font-size: 1.4rem;
+  }
+  .login-logo {
+    max-width: 150px;
   }
 }
