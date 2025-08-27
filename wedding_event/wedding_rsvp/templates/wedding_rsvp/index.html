@@ -15,7 +15,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Page</title>
-    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}?v=3" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -331,11 +331,31 @@
           <p>Formal Attire<br />Suit and tie, Formal Dress</p>
           <p><strong>Color Palette:</strong></p>
           <div class="color-palette">
-            <span style="background-color: #4c5b73"></span>
+            <!-- <span style="background-color: #4c5b73"></span>
             <span style="background-color: #7a8da1"></span>
             <span style="background-color: #e5b8b0"></span>
             <span style="background-color: #fbeaea"></span>
-            <span style="background-color: #f9e7d4"></span>
+            <span style="background-color: #f9e7d4"></span>-->
+            <img
+              src="{% static 'wedding_rsvp/images/swatches/swatch1.jpeg' %}"
+              class="swatch-images"
+            />
+            <img
+              src="{% static 'wedding_rsvp/images/swatches/swatch2.jpeg' %}"
+              class="swatch-images"
+            />
+            <img
+              src="{% static 'wedding_rsvp/images/swatches/swatch3.jpeg' %}"
+              class="swatch-images"
+            />
+            <img
+              src="{% static 'wedding_rsvp/images/swatches/swatch4.jpeg' %}"
+              class="swatch-images"
+            />
+            <img
+              src="{% static 'wedding_rsvp/images/swatches/swatch5.jpeg' %}"
+              class="swatch-images"
+            />
           </div>
         </div>
 

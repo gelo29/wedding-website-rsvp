@@ -13,7 +13,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Page</title>
-    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}?v=3" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -108,10 +108,17 @@
         <form method="POST">
           {% csrf_token %} {{ form.c_guest_code.label_tag }}
           {{form.c_guest_code}}
-          <button type="submit" id="confirm-guest-btn" class="login-btn">
+          <button
+            type="submit"
+            id="confirm-guest-btn"
+            class="login-btn"
+            disabled
+          >
             Send
           </button>
         </form>
+        {% if error %} {% include "wedding_rsvp/code_validation.html" %}
+        {%endif%}
       </div>
     </section>
 
@@ -168,6 +175,7 @@
         <p>All rights reserved.</p>
       </div>
     </footer>
-    <script src="{% static 'wedding_rsvp/js/main.js'%}"></script>
+    <script src="{% static 'wedding_rsvp/js/main.js'%}?v=3"></script>
+    <script src="{% static 'wedding_rsvp/js/button_disable.js'%}?v=3"></script>
   </body>
 </html>

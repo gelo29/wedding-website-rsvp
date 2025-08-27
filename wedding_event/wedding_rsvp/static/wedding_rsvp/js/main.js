@@ -109,5 +109,3 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
     }
   });
 });
-
-// button disable when confirm guest input is empty

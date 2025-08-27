@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from django.contrib.auth import login
 from django.contrib.auth.models import User
+from django.contrib.auth import login
+from django.urls import reverse
 from .forms import GuestInfoForm,ConfirmGuestForm
 from .models import Guest, Attendee
 from .utils import check_rsvp_code
@@ -13,6 +14,7 @@ def index(request):
     return render(request,"wedding_rsvp/index.html", context)
 
 def confirm_guest(request):
+    error = False
     if request.method == "POST":
         form = ConfirmGuestForm(request.POST)
         code = request.POST.get("c_guest_code")
@@ -24,15 +26,15 @@ def confirm_guest(request):
                     confirmation_info["matched"][0],
                     confirmation_info["matched"][1]
                 )
+                names = confirmation_info["matched"][0]+","+confirmation_info["matched"][1]+","+confirmation_info["matched"][2]
                 return redirect("wedding_rsvp:rsvp")
+                   
             else:
-                print("Not Matched")
-            
-            
+                error = True
     else:
         form = ConfirmGuestForm()
             
-    return render(request,"wedding_rsvp/confirm_guest.html",{"form":form})
+    return render(request,"wedding_rsvp/confirm_guest.html",{"form":form, "error":error})
 
 def rsvp(request):
     #create add button for multiple attendee
