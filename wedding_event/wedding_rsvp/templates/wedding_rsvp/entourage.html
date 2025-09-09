@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Page</title>
-    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}?v=2.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -86,7 +86,7 @@
       </nav>
     </header>
     <!-- Entourage -->
-    <section class="entourage-featured" id="entourage">
+    <section class="entourage-featured page-trans" id="entourage">
       <h2 class="entourage-title">Our Entourage</h2>
       <div class="entourage-featured-grid">
         <div class="entourage-featured-card matron-of-honor">
@@ -356,7 +356,7 @@
       </div>
     </section>
     <footer class="wedding-footer">
-      <div class="footer-container">
+      <div class="footer-container reveal-section hidden">
         <!-- Left -->
         <div class="footer-details">
           <h4>Ceremony</h4>
@@ -408,6 +408,8 @@
         <p>All rights reserved.</p>
       </div>
     </footer>
-    <script src="{% static 'wedding_rsvp/js/main.js'%}"></script>
+    <script src="{% static 'wedding_rsvp/js/scroll_reveal.js'%}?v=2.0"></script>
+    <script src="{% static 'wedding_rsvp/js/page_transition.js'%}?v=2.0"></script>
+    <script src="{% static 'wedding_rsvp/js/main.js'%}?v=2.0"></script>
   </body>
 </html>

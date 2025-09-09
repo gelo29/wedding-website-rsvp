@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import Guest, Attendee
+from .models import Guest
 
 admin.site.register(Guest)
-admin.site.register(Attendee)

@@ -1,19 +1,11 @@
-{% comment %}
-<form method="POST">
-  {% csrf_token %}
-  <div class="guest-code-container">
-    {{ form.c_guest_code.label_tag }} {{form.c_guest_code }}
-  </div>
-  <button type="submit">Confirm</button>
-</form>
-{% endcomment %} {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Page</title>
-    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}?v=3" />
+    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -118,12 +110,16 @@
           </button>
         </form>
         {% if error %} {% include "wedding_rsvp/code_validation.html" %}
+        {%endif%} {% if error_already_reg %}
+        <div class="error-box" id="error-box">
+          <p style="color: #a1b38c">You already submitted an RSVP.</p>
+        </div>
         {%endif%}
       </div>
     </section>
 
     <footer class="wedding-footer">
-      <div class="footer-container">
+      <div class="footer-container reveal-section hidden">
         <!-- Left -->
         <div class="footer-details">
           <h4>Ceremony</h4>
@@ -175,7 +171,10 @@
         <p>All rights reserved.</p>
       </div>
     </footer>
-    <script src="{% static 'wedding_rsvp/js/main.js'%}?v=3"></script>
-    <script src="{% static 'wedding_rsvp/js/button_disable.js'%}?v=3"></script>
+
+    <script src="{% static 'wedding_rsvp/js/main.js'%}?v=2.0"></script>
+    <script src="{% static 'wedding_rsvp/js/remove_error_msg.js'%}?v=2.0"></script>
+    <script src="{% static 'wedding_rsvp/js/scroll_reveal.js'%}"></script>
+    <script src="{% static 'wedding_rsvp/js/button_disable.js'%}"></script>
   </body>
 </html>

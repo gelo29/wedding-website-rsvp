@@ -93,40 +93,13 @@
           alt="Wedding Logo"
           class="rsvp-logo"
         />
-        <h2>RSVP</h2>
-        <form method="POST" action="{% url 'wedding_rsvp:rsvp' names %}">
-          {% csrf_token %}
-          <div class="form-group">
-            <h2 class="rsvp-guest-name">HI, {{ names.0 }}, {{ names.1 }}</h2>
-            <input
-              type="hidden"
-              name="guest_first_name"
-              value="{{ names.0 }}"
-            />
-            <input type="hidden" name="guest_last_name" value="{{ names.1 }}" />
-            <input type="hidden" name="guest_nick_name" value="{{ names.2 }}" />
-          </div>
-          <div class="rsvp-info">
-            <p>Can you Attend?</p>
-          </div>
-          <div class="form-group rsvp-options">
-            <label>
-              {{ form.guest_reply.0.tag }} {{ form.guest_reply.0.choice_label }}
-            </label>
-            <label>
-              {{ form.guest_reply.1.tag }} {{ form.guest_reply.1.choice_label }}
-            </label>
-          </div>
-
-          <div class="form-group">
-            <p class="reason-para" id="reason-para-id">
-              Can you tell us the reason?
-            </p>
-            {{ form.reason_msg }}
-          </div>
-
-          <button type="submit">Send</button>
-        </form>
+        <h2 class="rsvp-confirm">RSVP</h2>
+        <div class="rsvp-info">
+          <p>
+            Thank you for submitting your RSVP! We're excited to see you on our
+            special day!
+          </p>
+        </div>
       </div>
     </section>
     <footer class="wedding-footer">
@@ -182,7 +155,6 @@
         <p>All rights reserved.</p>
       </div>
     </footer>
-
     <script src="{% static 'wedding_rsvp/js/main.js'%}?v=1.0"></script>
     <script src="{% static 'wedding_rsvp/js/hide_textarea.js'%}?v=1.0"></script>
   </body>

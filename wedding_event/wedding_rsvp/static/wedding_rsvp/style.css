@@ -287,7 +287,15 @@ header.scrolled .logo-green {
   padding: 4rem 2rem;
   gap: 2rem;
 }
-
+.reveal-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-in-out;
+}
+.reveal-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 .our-story-image {
   flex: 1 1 10%;
   position: relative;
@@ -327,34 +335,26 @@ header.scrolled .logo-green {
 
 /* Gallery */
 .gallery-section {
-  /* padding: 4rem 0;
-  background-color: #a1b38c;
-  font-family: "Montserrat", cursive; */
-  height: 100vh; /* full screen height */
+  /* height: 100vh; */
   background-color: #a1b38c;
   font-family: "Montserrat", cursive;
   display: flex;
   flex-direction: column;
   justify-content: center; /* center content vertically */
-  padding: 2rem 0; /* reduced padding so it still fits */
+  /*padding: 2rem 0; reduced padding so it still fits */
   box-sizing: border-box;
 }
 
-.gallery-title {
+/* .gallery-title {
   text-align: center;
   font-weight: 500;
   font-size: 2.5rem;
   margin-bottom: 4rem;
   color: white;
-}
+} */
 .gallery-wrapper {
-  /* width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw; */
   width: 100%;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
 }
@@ -371,17 +371,10 @@ header.scrolled .logo-green {
 }
 
 .masonry-slide img {
-  /* width: 100%;
-  height: auto;
-  object-fit: cover;
-  max-height: 400px; 
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease; */
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
-  max-height: 60vh; /* fits inside screen without overflow */
+  max-height: 70vh;
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -402,6 +395,16 @@ header.scrolled .logo-green {
   background-size: contain;
   background-color: rgba(255, 255, 255, 0.94);
   background-blend-mode: overlay;
+}
+.page-trans {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+/* When active */
+.page-trans.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .entourage-featured-grid {
@@ -581,6 +584,9 @@ header.scrolled .logo-green {
 }
 
 /* Details */
+.prefer {
+  font-weight: bold;
+}
 
 .details-section {
   width: 100%;
@@ -622,6 +628,7 @@ header.scrolled .logo-green {
   font-size: 1rem;
   line-height: 1.6;
   color: #666;
+  text-align: center;
 }
 
 .color-palette {
@@ -631,8 +638,8 @@ header.scrolled .logo-green {
 }
 
 .color-palette img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   margin: 0 5px;
   display: inline-block;
@@ -914,12 +921,107 @@ button.login-btn[disabled] {
   margin-top: 20px;
   font-size: 0.8rem;
 }
-/* .swatch-images {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-} */
+
+/* RSVP FORM */
+
+.rsvp-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.rsvp-box {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.rsvp-logo {
+  max-width: 150px;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.3rem;
+  font-weight: 400;
+  color: #a1b38c;
+}
+
+.rsvp-guest-name {
+  font-weight: normal;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+  min-height: 100px;
+  resize: vertical;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+textarea:focus {
+  border-color: #a1b38c;
+  box-shadow: 0 0 8px rgba(168, 107, 91, 0.2);
+}
+
+.rsvp-options {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+button {
+  width: 100%;
+  background: #a1b38c;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #7c8b70;
+}
+.rsvp-info {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+input[type="radio"] {
+  accent-color: #a1b38c;
+  border-color: #7c8b70; /* change circle color when selected */
+}
+.reason-para {
+  font-family: "Montserrat" sans-serif;
+  color: #333;
+  margin-bottom: 20px;
+}
+/* RSVP Confirmed */
+.rsvp-confirm {
+  font-size: 2rem;
+}
 /* ==== Responsive Breakpoint ==== */
 @media (max-width: 992px) {
   .details-container {
@@ -987,6 +1089,8 @@ button.login-btn[disabled] {
     row-gap: 20px;
     /* border: 1px solid red; */
   }
+
+  /* Our Story */
   .our-story-section {
     flex-direction: column;
     text-align: center;
@@ -1023,7 +1127,7 @@ button.login-btn[disabled] {
     color: #444;
   }
   .our-story-text p {
-    text-align: left;
+    text-align: justify;
     margin-bottom: 1.2rem;
   }
   /* Event */
@@ -1076,5 +1180,14 @@ button.login-btn[disabled] {
   }
   .login-logo {
     max-width: 150px;
+  }
+  /* RSVP FORM */
+  .rsvp-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .rsvp-options {
+    flex-direction: column;
+    gap: 1rem;
   }
 }
