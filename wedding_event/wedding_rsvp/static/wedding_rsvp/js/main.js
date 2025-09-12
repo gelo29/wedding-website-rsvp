@@ -61,53 +61,91 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown(); // run immediately
 
-const swiper = new Swiper(".gallery-swiper", {
-  slidesPerView: 1.2,
-  spaceBetween: 20,
-  loop: true,
-  grabCursor: true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 3000, // 3 seconds
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    640: {
-      slidesPerView: 2.2,
-    },
-    1024: {
-      slidesPerView: 3.2,
-    },
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
+// gallery
+let lightbox; // global variable
+
+function initGallery(root = document) {
+  // Swiper init (only if element exists and not already initialized)
+  const swiperEl = root.querySelector(".gallery-swiper");
+  if (swiperEl && !swiperEl.classList.contains("swiper-initialized")) {
+    new Swiper(swiperEl, {
+      slidesPerView: 1.2,
+      spaceBetween: 20,
+      loop: true,
+      grabCursor: true,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000, // 3 seconds
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2.2,
+        },
+        1024: {
+          slidesPerView: 3.2,
+        },
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  }
+
+  // GLightbox init (only once)
+  if (!lightbox) {
+    lightbox = GLightbox({
+      selector: ".glightbox",
+      touchNavigation: true,
+      loop: true,
+    });
+  } else {
+    // Refresh in case new .glightbox elements were added via HTMX
+    lightbox.reload();
+  }
+}
+
+// Initial load
+document.addEventListener("DOMContentLoaded", () => {
+  initGallery();
 });
 
-// Initialize GLightbox
-const lightbox = GLightbox({
-  selector: ".glightbox",
-  touchNavigation: true,
-  loop: true,
+// After HTMX swaps content
+document.body.addEventListener("htmx:afterSwap", (e) => {
+  initGallery(e.target);
 });
 
 // FAQ
-document.querySelectorAll(".faq-question").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.classList.toggle("active");
-    let answer = btn.nextElementSibling;
+function initFAQ(root = document) {
+  root.querySelectorAll(".faq-question").forEach((btn) => {
+    // Prevent duplicate listeners
+    if (!btn.dataset.listenerAttached) {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("active");
+        let answer = btn.nextElementSibling;
 
-    if (btn.classList.contains("active")) {
-      answer.style.maxHeight = answer.scrollHeight + "px";
-      answer.style.paddingTop = "1rem";
-      answer.style.paddingBottom = "1rem";
-    } else {
-      answer.style.maxHeight = null;
-      answer.style.paddingTop = "0";
-      answer.style.paddingBottom = "0";
+        if (btn.classList.contains("active")) {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+          answer.style.paddingTop = "1rem";
+          answer.style.paddingBottom = "1rem";
+        } else {
+          answer.style.maxHeight = null;
+          answer.style.paddingTop = "0";
+          answer.style.paddingBottom = "0";
+        }
+      });
+      btn.dataset.listenerAttached = "true"; // mark as initialized
     }
   });
+}
+
+// Run on first page load
+document.addEventListener("DOMContentLoaded", () => {
+  initFAQ();
 });
 
-
+// Run after HTMX swaps
+document.body.addEventListener("htmx:afterSwap", (e) => {
+  initFAQ(e.target);
+});

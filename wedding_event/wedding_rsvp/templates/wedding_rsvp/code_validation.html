@@ -1,5 +1,11 @@
+{% if error_already_reg %}
+<div class="error-box" id="error-box">
+  <p style="color: #a1b38c">You already submitted an RSVP.</p>
+</div>
+{%else%}
 <div class="error-box" id="error-box">
   <p style="color: red">
     ❌ Invalid code. Please try again or Contact Gelo or Celly.
   </p>
 </div>
+{%endif%}

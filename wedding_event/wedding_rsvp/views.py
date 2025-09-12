@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.urls import reverse
@@ -8,9 +8,10 @@ from .utils import check_rsvp_code
 from django.views.decorators.cache import cache_control
 
 def index(request):
+
     get_first_name = Guest.objects.order_by("first_name")
     context = {"get_first_name":get_first_name}
-    
+
     return render(request,"wedding_rsvp/index.html", context)
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
@@ -38,24 +39,17 @@ def confirm_guest(request):
                 Guest.objects.filter(nick_name=confirmation_info["matched"][2].upper()).exists():
                     
                     error_already_reg = True
+                    request.session["rsvp_done"] = False
                     return render(request,"wedding_rsvp/confirm_guest.html",{"form":form, "error_already_reg":error_already_reg})
-                
-                names = confirmation_info["matched"][0].upper() +","+confirmation_info["matched"][1].upper()+","+confirmation_info["matched"][2].upper()
-                 
-                # return render(
-                #     request,
-                #     "wedding_rsvp/rsvp.html",
-                #     {
-                #         "names": names.split(","),
-                #         "form": GuestInfoForm(),
-                #     }
-                # )
-                names = names.split(",")
-                request.session["names_list"] = names
-                
-                return redirect(reverse("wedding_rsvp:rsvp", kwargs={"names":names}))
+                else:
+                    names = confirmation_info["matched"][0].upper() +","+confirmation_info["matched"][1].upper()+","+confirmation_info["matched"][2].upper()
+            
+                    names = names.split(",")
+                    request.session["names_list"] = names
+                    return redirect(reverse("wedding_rsvp:rsvp", kwargs={"names":names}))
                    
             else:
+                request.session["rsvp_done"] = False
                 error = True
     else:
         form = ConfirmGuestForm()
@@ -101,6 +95,7 @@ def rsvp(request,names):
     return render(request, "wedding_rsvp/rsvp.html", {"names":names,"form":form})
 
 def entourage(request):
+
     return render(request, "wedding_rsvp/entourage.html")
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
