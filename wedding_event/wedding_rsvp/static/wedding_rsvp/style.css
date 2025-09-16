@@ -788,63 +788,23 @@ header.scrolled .logo-green {
   color: #88a47c;
 }
 /* Wedding Timeline */
-
 .wedding-timeline {
   text-align: center;
-  font-family: "Montserrat", serif;
-  padding: 50px 20px;
-  background-color: #fff9f6;
 }
 
-.timeline-title {
-  font-size: 2rem;
-  font-weight: 500;
-  margin-bottom: 40px;
-  color: #a86b5b;
-  letter-spacing: 1px;
+.timeline-img {
+  width: 100%;
+  max-width: 900px;
+  display: none; /* hide by default */
+  margin: 20px auto;
 }
 
-.timeline-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
+/* Show horizontal on desktop */
+.desktop {
+  display: block;
 }
 
-.timeline-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.timeline-item .time {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #6b4b3e;
-}
-
-.timeline-item .event {
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #8c6d5a;
-  padding: 8px 14px;
-  border-radius: 20px;
-  background: #fceee9;
-}
-
-.timeline-item::after {
-  content: "";
-  position: absolute;
-  top: 15px;
-  right: -40px;
-  width: 40px;
-  height: 2px;
-  background-color: #d6b1a3;
-}
-
-.timeline-item:last-child::after {
+.mobile {
   display: none;
 }
 /* RSVP Log in */
@@ -1159,20 +1119,11 @@ input[type="radio"] {
     font-size: 1.3rem;
   }
   /* Wedding timeline */
-  .timeline-container {
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
+  .desktop {
+    display: none;
   }
-
-  .timeline-item::after {
-    position: absolute;
-    top: auto;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 25px;
+  .mobile {
+    display: block;
   }
   /* RSVP Login */
   .code-login {
