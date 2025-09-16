@@ -17,19 +17,23 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+env = environ.Env(
+    DEBUG=(bool,False)
+)
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3(!=3#_t)vnkrp1#u^x243@&5qmh!6oo2s20t_+r*f$&=n*703'
+SECRET_KEY = env("SECRET_KEY", default="django-insecure-please-change")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+render_host = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if render_host:
+    ALLOWED_HOSTS.append(render_host)
 # Application definition
 
 INSTALLED_APPS = [
@@ -75,8 +79,6 @@ WSGI_APPLICATION = 'wedding_proj.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases\
-env = environ.Env()
-env.read_env(os.path.join(BASE_DIR, ".env"))
 
 DATABASES = {
     'default': dj_database_url.parse(
