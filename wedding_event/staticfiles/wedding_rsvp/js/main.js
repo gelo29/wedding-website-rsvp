@@ -61,59 +61,31 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown(); // run immediately
 
-// gallery
-let lightbox; // global variable
-
-function initGallery(root = document) {
-  // Swiper init (only if element exists and not already initialized)
-  const swiperEl = root.querySelector(".gallery-swiper");
-  if (swiperEl && !swiperEl.classList.contains("swiper-initialized")) {
-    new Swiper(swiperEl, {
-      slidesPerView: 1.2,
-      spaceBetween: 20,
-      loop: true,
-      grabCursor: true,
-      centeredSlides: true,
-      autoplay: {
-        delay: 3000, // 3 seconds
-        disableOnInteraction: false,
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 2.2,
-        },
-        1024: {
-          slidesPerView: 3.2,
-        },
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  }
-
-  // GLightbox init (only once)
-  if (!lightbox) {
-    lightbox = GLightbox({
-      selector: ".glightbox",
-      touchNavigation: true,
-      loop: true,
-    });
-  } else {
-    // Refresh in case new .glightbox elements were added via HTMX
-    lightbox.reload();
-  }
-}
-
-// Initial load
-document.addEventListener("DOMContentLoaded", () => {
-  initGallery();
+const swiper = new Swiper(".gallery-swiper", {
+  slidesPerView: 1.2,
+  spaceBetween: 20,
+  loop: true,
+  grabCursor: true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 3000, // 3 seconds
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2.2,
+    },
+    1024: {
+      slidesPerView: 3.2,
+    },
+  },
 });
 
-// After HTMX swaps content
-document.body.addEventListener("htmx:afterSwap", (e) => {
-  initGallery(e.target);
+// Initialize GLightbox
+const lightbox = GLightbox({
+  selector: ".glightbox",
+  touchNavigation: true,
+  loop: true,
 });
 
 // FAQ
