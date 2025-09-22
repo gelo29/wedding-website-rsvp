@@ -729,16 +729,11 @@ header.scrolled .logo-green {
 .footer-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   max-width: 1200px;
   margin: auto;
   gap: 2rem;
-}
-
-.footer-details,
-.footer-contact {
-  flex: 1 1 250px;
 }
 
 .footer-details h4,
@@ -755,7 +750,7 @@ header.scrolled .logo-green {
 }
 
 .footer-logo img {
-  width: 100px;
+  width: 120px;
   height: auto;
 }
 
@@ -1113,6 +1108,9 @@ input[type="radio"] {
   .footer-logo {
     order: -1;
     margin-bottom: 1rem;
+  }
+  .footer-logo img {
+    width: 200px;
   }
   .groomsmen-bridesmaids-title,
   .bearers-title {
