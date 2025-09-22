@@ -946,12 +946,21 @@ textarea:focus {
 
 .rsvp-options {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 40px 20px;
   font-size: 1rem;
   color: #444;
 }
-
+.rsvp-options label {
+  display: flex;
+  align-items: center; /* vertically center input & text */
+  margin: 0; /* remove extra margin */
+}
+.rsvp-options input[type="radio"] {
+  margin: 0 0.4rem 0 0; /* small space between dot and text */
+}
 button {
   width: 100%;
   background: #a1b38c;
@@ -970,6 +979,7 @@ button:hover {
 .rsvp-info {
   margin-bottom: 20px;
   font-size: 1rem;
+  text-align: left;
 }
 input[type="radio"] {
   accent-color: #a1b38c;
@@ -979,6 +989,7 @@ input[type="radio"] {
   font-family: "Montserrat" sans-serif;
   color: #333;
   margin-bottom: 20px;
+  text-align: left;
 }
 /* RSVP Confirmed */
 .rsvp-confirm {
@@ -1141,10 +1152,5 @@ input[type="radio"] {
   /* RSVP FORM */
   .rsvp-box {
     padding: 2rem 1.5rem;
-  }
-
-  .rsvp-options {
-    flex-direction: column;
-    gap: 1rem;
   }
 }
