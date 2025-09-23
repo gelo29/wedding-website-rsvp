@@ -6,6 +6,8 @@ from .forms import GuestInfoForm,ConfirmGuestForm
 from .models import Guest
 from .utils import check_rsvp_code
 from django.views.decorators.cache import cache_control
+from django.http import FileResponse
+import os
 
 def index(request):
 
@@ -13,6 +15,10 @@ def index(request):
     context = {"get_first_name":get_first_name}
 
     return render(request,"wedding_rsvp/index.html", context)
+
+def preview_invitation(request):
+    file_path = os.path.join("wedding_rsvp","static","pdfs","invitation.pdf")
+    return FileResponse(open(file_path,"rb"), content_type="application/pdf")
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def confirm_guest(request):

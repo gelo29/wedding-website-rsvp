@@ -7,7 +7,12 @@
       <p>Please join us on our wedding day as we start our new chapter</p>
       <h3>December 26, 2025</h3>
       <div class="hero-buttons">
-        <a href="#invitation" class="hero-button">Invitation</a>
+        <a
+          href="{% url 'wedding_rsvp:preview_invitation' %}"
+          class="hero-button"
+          target="_blank"
+          >Invitation</a
+        >
         <a
           href="{% url 'wedding_rsvp:confirm_guest' %}"
           class="hero-button rsvp-button-mobile"

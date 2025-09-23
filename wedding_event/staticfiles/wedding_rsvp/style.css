@@ -447,7 +447,7 @@ header.scrolled .logo-green {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px; /* fixed width */
+  width: 300px;
   transition: transform 0.3s ease;
 }
 .entourage-featured-card:hover {
