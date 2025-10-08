@@ -1,8 +1,0 @@
-[phases.setup]
-cmds = ["pip install -r requirements.txt"]
-
-[phases.install]
-cmds = ["python manage.py collectstatic --noinput"]
-
-[start]
-cmd = "python manage.py migrate && gunicorn wedding_event.wsgi:application --bind 0.0.0.0:$PORT"
