@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn gunicorn wedding_proj.wsgi
+web: python manage.py migrate && gunicorn wedding_proj.wsgi
