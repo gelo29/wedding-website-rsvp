@@ -3,8 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wedding Page</title>
+    <meta property="og:title" content="Angelo & Celly Wedding RSVP" />
+    <meta
+      property="og:description"
+      content="Go to RSVP link(button) to register"
+    />
     {% load static %}
+    <meta
+      property="og:image"
+      content="{{ request.scheme }}://{{ request.get_host }}{% static 'wedding_rsvp/images/hero.JPG' %}"
+    />
+    <meta
+      property="og:url"
+      content="https://gelo-celly-wedding.up.railway.app/"
+    />
+    <meta property="og:type" content="website" />
+    <title>Wedding Page</title>
 
     <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
