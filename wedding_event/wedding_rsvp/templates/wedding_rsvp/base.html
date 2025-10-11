@@ -12,11 +12,11 @@
 
     <meta
       property="og:image"
-      content="{{ request.build_absolute_uri }}{% static 'wedding_rsvp/images/hero.JPG' %}"
+      content="{{ request.scheme }}://{{ request.get_host }}{% static 'wedding_rsvp/images/hero.JPG' %}"
     />
     <meta
       property="og:url"
-      content="https://gelo-celly-wedding.up.railway.app/"
+      content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
     />
     <meta property="og:type" content="website" />
     <title>Wedding Page</title>
