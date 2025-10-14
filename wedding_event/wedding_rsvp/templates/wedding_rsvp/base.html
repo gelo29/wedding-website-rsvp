@@ -9,7 +9,10 @@
       property="og:description"
       content="Go to RSVP link(button) to register"
     />
-
+    <meta
+      property="og:image"
+      content="{{ request.scheme }}://{{ request.get_host }}{% static 'wedding_rsvp/images/link_thumbnail.png' %}"
+    />
     <meta
       property="og:image:secure_url"
       content="{{ request.scheme }}://{{ request.get_host }}{% static 'wedding_rsvp/images/link_thumbnail.png' %}"
