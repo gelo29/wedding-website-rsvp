@@ -17,8 +17,9 @@ def index(request):
     return render(request,"wedding_rsvp/index.html", context)
 
 def preview_invitation(request):
-    file_path = os.path.join("wedding_rsvp","static","pdfs","invitation.pdf")
-    return FileResponse(open(file_path,"rb"), content_type="application/pdf")
+    return render(request, "wedding_rsvp/invitation.html")
+    #file_path = os.path.join("wedding_rsvp","static","pdfs","invitation.pdf")
+    #return FileResponse(open(file_path,"rb"), content_type="application/pdf")
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def confirm_guest(request):

@@ -66,9 +66,9 @@ header.scrolled {
   border-bottom: 2px solid #a1b38c;
 }
 
-.entourage-nav-links li a {
+/* .entourage-nav-links li a {
   color: #333;
-}
+} */
 
 header.scrolled a {
   color: #a1b38c;
@@ -1013,6 +1013,16 @@ input[type="radio"] {
 .rsvp-confirm {
   font-size: 2rem;
 }
+
+/* Invitation */
+.zine-container {
+  width: 100%;
+  height: 125vh;
+}
+.entourage-nav-links li a {
+  color: #333;
+}
+
 /* ==== Responsive Breakpoint ==== */
 @media (max-width: 992px) {
   .details-container {
