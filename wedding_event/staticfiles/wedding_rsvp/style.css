@@ -766,6 +766,17 @@ header.scrolled .logo-green {
   font-size: 0.95rem;
   line-height: 1.4;
 }
+.contact-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.contact-img {
+  flex-shrink: 0;
+}
+.cel-num {
+  margin-bottom: 3px;
+}
 
 .footer-logo img {
   width: 120px;
@@ -780,8 +791,9 @@ header.scrolled .logo-green {
 }
 
 .username {
+  text-decoration: none;
   font-size: 0.85rem;
-  color: #666;
+  color: #fff;
 }
 
 .footer-bottom {

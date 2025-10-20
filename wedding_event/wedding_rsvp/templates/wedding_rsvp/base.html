@@ -28,7 +28,7 @@
     <meta property="fb:app_id" content="1136627951944639" />
     <title>Wedding Page</title>
 
-    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}?v=1.0" />
+    <link rel="stylesheet" href="{% static 'wedding_rsvp/style.css' %}?v=2.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -160,23 +160,46 @@
         <!-- Right Contact -->
         <div class="footer-contact">
           <h4>Got questions? You may contact us at:</h4>
-          <p>
-            <img src="{% static 'wedding_rsvp/images/fb_2.svg' %}" alt="" />
-            Angelo Samson<br />
-            <span class="username">gelosamson</span>
-          </p>
-          <p>
-            <img src="{% static 'wedding_rsvp/images/insta_2.svg'%}" alt="" />
-            Celly Betangcol<br />
-            <span class="username">cellybetangcol</span>
-          </p>
-          <p>
+          <div class="contact-container">
+            <img
+              src="{% static 'wedding_rsvp/images/fb_2.svg' %}"
+              alt=""
+              class="contact-img"
+            />
+            <div>
+              <div class="cel-num">
+                <a
+                  href="https://m.me/gelo.samson.3"
+                  class="username"
+                  target="_blank"
+                  >Gelo</a
+                >
+              </div>
+              <div class="cel-num"><a href="#" class="username">Celly</a></div>
+            </div>
+          </div>
+          <!--<div class="contact-container">
+            <img
+              src="{% static 'wedding_rsvp/images/insta_2.svg'%}"
+              alt=""
+              class="contact-img"
+            />
+            <div>
+              <a href="#" class="username">Gelo</a> or
+              <a href="#" class="username">Celly</a>
+            </div>
+          </div>-->
+          <div class="contact-container">
             <img
               src="{% static 'wedding_rsvp/images/phone_num.svg' %}"
               alt=""
+              class="contact-img"
             />
-            +63 956 510 6867
-          </p>
+            <div>
+              <div class="cel-num">+63 956 510 6867 - Gelo</div>
+              <div class="cel-num">+63 947 725 8446 - Celly</div>
+            </div>
+          </div>
         </div>
       </div>
 
