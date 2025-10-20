@@ -246,8 +246,10 @@ header.scrolled .logo-green {
 .hero-button:hover {
   transform: translateY(-2px);
 }
+
 .rsvp-button-mobile {
-  display: none;
+  padding: 12px 50px;
+  margin-left: 30px;
 }
 /* ==== Countdown ==== */
 .countdown {
@@ -1083,10 +1085,10 @@ input[type="radio"] {
     padding: 7px 20px;
     margin: 5px 10px;
   }
-  .rsvp-button-mobile {
+  /* .rsvp-button-mobile {
     padding: 7px 20px;
     display: inline-block;
-  }
+  } */
   .hero-buttons {
     display: grid;
     grid-template-columns: repeat(2, 150px);
