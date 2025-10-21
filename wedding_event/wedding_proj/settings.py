@@ -31,7 +31,7 @@ SECRET_KEY = env("SECRET_KEY", default="django-insecure-please-change")
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'#DEBUG = env.bool("DEBUG", default=False) #DEBUG = env("DEBUG") 
 
 ALLOWED_HOSTS = ["*"]#ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ["https://gelo-celly-wedding.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ["https://gelo-celly-wedding.up.railway.app/","https://*.railway.app",]
 render_host = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if render_host:
     ALLOWED_HOSTS.append(render_host)
