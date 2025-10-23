@@ -1,0 +1,6 @@
+{% extends "admin/change_list.html" %} {% block pagination %}
+<div style="padding: 8px 16px; font-weight: bold">
+  {{ total_count }} guests total &nbsp;|&nbsp; {{ attending_count }} will
+  attending &nbsp;|&nbsp; {{ attendance_pct }}%
+</div>
+{{ block.super }} {% endblock %}
