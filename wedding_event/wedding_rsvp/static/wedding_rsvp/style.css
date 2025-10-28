@@ -210,13 +210,14 @@ header.scrolled .logo-green {
   margin: 0 auto;
 }
 
-.hero-content h1 {
+.hero-title {
   font-family: "Parisienne", cursive;
-  font-size: clamp(36px, 7vw, 64px); /* 👈 Responsive font */
+  font-size: clamp(36px, 7vw, 64px);
   margin-bottom: 20px;
   white-space: nowrap; /* Prevent wrapping names */
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #fff;
 }
 
 .hero-content p {
@@ -250,6 +251,14 @@ header.scrolled .logo-green {
 .rsvp-button-mobile {
   padding: 12px 50px;
   margin-left: 30px;
+}
+
+.hero-title-part {
+  font-family: "Montserrat", cursive;
+  font-weight: 300;
+  font-size: clamp(20px, 3vw, 30px);
+  margin-bottom: 30px;
+  margin-left: 25px;
 }
 /* ==== Countdown ==== */
 .countdown {
@@ -1098,7 +1107,7 @@ input[type="radio"] {
     width: 100%;
   }
   .countdown {
-    display: grid !important; /* ⬅️ force override */
+    display: grid !important;
     grid-template-columns: repeat(2, 80px);
     column-gap: 16px;
     row-gap: 20px;
