@@ -12,7 +12,7 @@
     <form method="POST" action="{% url 'wedding_rsvp:rsvp' names %}">
       {% csrf_token %}
       <div class="form-group">
-        <h2 class="rsvp-guest-name">HI, {{ names.0 }}, {{ names.1 }}</h2>
+        <h2 class="rsvp-guest-name">HI, {{ names.0 }} {{ names.1 }}</h2>
         <input type="hidden" name="guest_first_name" value="{{ names.0 }}" />
         <input type="hidden" name="guest_last_name" value="{{ names.1 }}" />
         <input type="hidden" name="guest_nick_name" value="{{ names.2 }}" />
